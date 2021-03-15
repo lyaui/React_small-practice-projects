@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/React_small-practice-projects/firegram/static/css/main.42c286be.chunk.css",
-    "main.js": "/React_small-practice-projects/firegram/static/js/main.b0d93a69.chunk.js",
-    "main.js.map": "/React_small-practice-projects/firegram/static/js/main.b0d93a69.chunk.js.map",
-    "runtime-main.js": "/React_small-practice-projects/firegram/static/js/runtime-main.2aa82e5e.js",
-    "runtime-main.js.map": "/React_small-practice-projects/firegram/static/js/runtime-main.2aa82e5e.js.map",
-    "static/js/2.9bf5bc50.chunk.js": "/React_small-practice-projects/firegram/static/js/2.9bf5bc50.chunk.js",
-    "static/js/2.9bf5bc50.chunk.js.map": "/React_small-practice-projects/firegram/static/js/2.9bf5bc50.chunk.js.map",
-    "index.html": "/React_small-practice-projects/firegram/index.html",
-    "precache-manifest.b1218abd303df30c2c827908778e5e74.js": "/React_small-practice-projects/firegram/precache-manifest.b1218abd303df30c2c827908778e5e74.js",
-    "service-worker.js": "/React_small-practice-projects/firegram/service-worker.js",
-    "static/css/main.42c286be.chunk.css.map": "/React_small-practice-projects/firegram/static/css/main.42c286be.chunk.css.map",
-    "static/js/2.9bf5bc50.chunk.js.LICENSE.txt": "/React_small-practice-projects/firegram/static/js/2.9bf5bc50.chunk.js.LICENSE.txt"
+    "main.css": "/React_small-practice-projects/The-Net-Ninja_firegram/static/css/main.42c286be.chunk.css",
+    "main.js": "/React_small-practice-projects/The-Net-Ninja_firegram/static/js/main.cf6b3970.chunk.js",
+    "main.js.map": "/React_small-practice-projects/The-Net-Ninja_firegram/static/js/main.cf6b3970.chunk.js.map",
+    "runtime-main.js": "/React_small-practice-projects/The-Net-Ninja_firegram/static/js/runtime-main.d22b830f.js",
+    "runtime-main.js.map": "/React_small-practice-projects/The-Net-Ninja_firegram/static/js/runtime-main.d22b830f.js.map",
+    "static/js/2.f4160075.chunk.js": "/React_small-practice-projects/The-Net-Ninja_firegram/static/js/2.f4160075.chunk.js",
+    "static/js/2.f4160075.chunk.js.map": "/React_small-practice-projects/The-Net-Ninja_firegram/static/js/2.f4160075.chunk.js.map",
+    "index.html": "/React_small-practice-projects/The-Net-Ninja_firegram/index.html",
+    "precache-manifest.715ff487a9d261d7645cc5acffb010a1.js": "/React_small-practice-projects/The-Net-Ninja_firegram/precache-manifest.715ff487a9d261d7645cc5acffb010a1.js",
+    "service-worker.js": "/React_small-practice-projects/The-Net-Ninja_firegram/service-worker.js",
+    "static/css/main.42c286be.chunk.css.map": "/React_small-practice-projects/The-Net-Ninja_firegram/static/css/main.42c286be.chunk.css.map",
+    "static/js/2.f4160075.chunk.js.LICENSE.txt": "/React_small-practice-projects/The-Net-Ninja_firegram/static/js/2.f4160075.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2aa82e5e.js",
-    "static/js/2.9bf5bc50.chunk.js",
+    "static/js/runtime-main.d22b830f.js",
+    "static/js/2.f4160075.chunk.js",
     "static/css/main.42c286be.chunk.css",
-    "static/js/main.b0d93a69.chunk.js"
+    "static/js/main.cf6b3970.chunk.js"
   ]
 }
