@@ -10,29 +10,31 @@ const Backdrop = ({ errorHandler }) => {
 };
 
 const ModalOverlay = ({ title, message, errorHandler }) => {
-  <>
-    <Card className={classes.modal}>
-      <header className={classes.header}>
-        <h2>{title}</h2>
-      </header>
-      <div className={classes.content}>
-        <p>{message}</p>
-      </div>
-      <footer className={classes.actions}>
-        <Button onClick={errorHandler}>Okay</Button>
-      </footer>
-    </Card>
-  </>;
+  return (
+    <>
+      <Card className={classes.modal}>
+        <header className={classes.header}>
+          <h2>{title}</h2>
+        </header>
+        <div className={classes.content}>
+          <p>{message}</p>
+        </div>
+        <footer className={classes.actions}>
+          <Button onClick={errorHandler}>Okay</Button>
+        </footer>
+      </Card>
+    </>
+  );
 };
 function ErrorModal({ title, message, errorHandler }) {
   return (
     <>
       {ReactDOM.createPortal(
-        <Backdrop onClick={errorHandler}></Backdrop>,
+        <Backdrop errorHandler={errorHandler}></Backdrop>,
         document.querySelector('#backdrop-root'),
       )}
       {ReactDOM.createPortal(
-        <ModalOverlay title={title} message={message} onClick={errorHandler}></ModalOverlay>,
+        <ModalOverlay title={title} message={message} errorHandler={errorHandler}></ModalOverlay>,
         document.querySelector('#overlay-root'),
       )}
     </>

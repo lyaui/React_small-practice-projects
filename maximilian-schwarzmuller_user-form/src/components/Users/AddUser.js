@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import ErrorModal from '../UI/ErrorModal';
 import classes from './AddUser.module.css';
 
 function AddUser({ setUsers }) {
-  const [userName, setUserName] = useState('');
-  const [userAge, setUserAge] = useState('');
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
   const [error, setError] = useState(null);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    const enterdName = nameInputRef.current.value;
+    const enterdAge = ageInputRef.current.value;
     // 無值
-    if (userName.trim().length === 0 || userAge.trim().length === 0) {
+    if (enterdName.trim().length === 0 || enterdAge.trim().length === 0) {
       setError({
         title: 'Invalid input',
         message: 'Please enter a valid name and age (none-empty values).',
@@ -20,16 +22,16 @@ function AddUser({ setUsers }) {
       return;
     }
     // 年齡不足1
-    if (+userAge < 1) {
+    if (+enterdAge < 1) {
       setError({
         title: 'Invalid age',
         message: 'Please enter a valid age (> 0).',
       });
       return;
     }
-    setUsers({ name: userName, age: userAge });
-    setUserName('');
-    setUserAge('');
+    setUsers({ name: enterdName, age: enterdAge });
+    nameInputRef.current.value = '';
+    ageInputRef.current.value = '';
   };
 
   const errorHandler = () => {
@@ -48,19 +50,9 @@ function AddUser({ setUsers }) {
       <Card className={classes.input}>
         <form onSubmit={handleFormSubmit}>
           <label htmlFor='username'>Username</label>
-          <input
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            id='username'
-            type='text'
-          />
+          <input ref={nameInputRef} id='username' type='text' />
           <label htmlFor='age'>Age(Years)</label>
-          <input
-            value={userAge}
-            onChange={(e) => setUserAge(e.target.value)}
-            id='age'
-            type='number'
-          />
+          <input ref={ageInputRef} id='age' type='number' />
           <Button type={'submit'} onClick={handleFormSubmit}>
             Add User
           </Button>
