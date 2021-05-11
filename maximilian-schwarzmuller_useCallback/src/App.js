@@ -8,8 +8,9 @@ function App() {
   const [allowToggle, setAllowToggle] = useState(false);
 
   const toogleParagraphHandler = useCallback(() => {
-    if (allowToggle) setShowParagraph((prevState) => !prevState);
-  }, [allowToggle]);
+    setShowParagraph((prevState) => !prevState);
+    setAllowToggle((prevState) => !prevState);
+  }, []);
   const allowToggleHandler = () => {
     setAllowToggle(true);
   };
