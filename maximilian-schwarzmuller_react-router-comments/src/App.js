@@ -1,29 +1,32 @@
-import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom';
-import Welcome from './pages/Welcome';
-import Products from './pages/Products';
-import ProductDetails from './pages/ProductDetails';
-import MainHeader from './components/MainHeader';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import AllQuotes from './pages/AllQuotes';
+import NewQuote from './pages/NewQuote';
+import QuoteDetail from './pages/QuoteDetail';
+import Notfound from './pages/NotFound';
 
 function App() {
   return (
     <BrowserRouter>
-      <MainHeader></MainHeader>
-      <main>
+      <Layout>
         <Switch>
           <Route path='/' exact>
-            <Redirect to='/welcome'></Redirect>
+            <Redirect to='/quotes'></Redirect>
           </Route>
-          <Route path='/welcome' exact>
-            <Welcome />
+          <Route path='/quotes' exact>
+            <AllQuotes />
           </Route>
-          <Route path='/products' exact>
-            <Products />
+          <Route path='/quotes/:quoteId'>
+            <QuoteDetail />
           </Route>
-          <Route path='/products/:productId' exact>
-            <ProductDetails />
+          <Route path='/new-quote' exact>
+            <NewQuote />
+          </Route>
+          <Route path='*'>
+            <Notfound />
           </Route>
         </Switch>
-      </main>
+      </Layout>
     </BrowserRouter>
   );
 }
