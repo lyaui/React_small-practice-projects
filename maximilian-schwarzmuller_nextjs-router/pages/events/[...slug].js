@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import { getFilteredEvents } from '../../helpers/api-utils';
@@ -22,6 +23,13 @@ function FilteredEventsPage() {
     }
   }, [data]);
 
+  let pageHead = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta name='description' content={`A list of filtered events`} />
+    </Head>
+  );
+
   if (!loadedEvents) return <p className='center'>Loading...</p>;
 
   // 現抓的日期
@@ -30,6 +38,13 @@ function FilteredEventsPage() {
   const numYear = +filterData[0];
   const numMonth = +filterData[1];
   const date = new Date(numYear, numMonth - 1);
+
+  pageHead = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta name='description' content={`All events for ${numMonth}/${numYear}`} />
+    </Head>
+  );
 
   // 確認現抓的日期有沒有問題
   if (
@@ -43,6 +58,7 @@ function FilteredEventsPage() {
   )
     return (
       <Fragment>
+        {pageHead}
         <ErrorAlert>
           <p>Invalid filter. Please adjust your values!</p>
         </ErrorAlert>
@@ -60,6 +76,7 @@ function FilteredEventsPage() {
   if (!filteredEvents || filteredEvents.length === 0)
     return (
       <Fragment>
+        {pageHead}
         <ErrorAlert>
           <p>No events found for the choosen filter!</p>
         </ErrorAlert>
@@ -71,6 +88,7 @@ function FilteredEventsPage() {
 
   return (
     <div>
+      {pageHead}
       <ResultsTitle date={date} />
       <EventList items={filteredEvents} />
     </div>
