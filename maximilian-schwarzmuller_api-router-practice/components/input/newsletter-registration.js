@@ -1,7 +1,10 @@
 import { useRef } from 'react';
 import classes from './newsletter-registration.module.css';
+import { useNotificationValue } from '../../store/notification-context';
 
 function NewsletterRegistration() {
+  const { showNotification, hideNotification } = useNotificationValue();
+
   const inputEmailRef = useRef();
 
   const registrationHandler = async (event) => {
@@ -10,13 +13,34 @@ function NewsletterRegistration() {
     const enteredEmailValue = inputEmailRef.current.value;
     if (!enteredEmailValue) return;
 
-    const res = await fetch('/api/newsletter', {
-      method: 'POST',
-      body: JSON.stringify({ email: enteredEmailValue }),
-      headers: { 'Content-Type': 'application/json' },
+    showNotification({
+      title: 'Sign up...',
+      message: 'Registering for newsletter.',
+      status: 'pending',
     });
-    const data = await res.json();
-    console.log(data);
+
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        body: JSON.stringify({ email: enteredEmailValue }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = res.json();
+      // status 400/500 不會造成 error 所以要另外使用 res.ok 來判斷
+      if (!res.ok) throw new Error(data.message || 'Something went wrong!');
+
+      showNotification({
+        title: 'Success!',
+        message: 'Successfully registered for newsletter!',
+        status: 'success',
+      });
+    } catch (error) {
+      showNotification({
+        title: 'Error!',
+        message: error.message || 'Something went wrong!',
+        status: 'error',
+      });
+    }
   };
 
   return (
